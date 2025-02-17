@@ -6,7 +6,7 @@ import { Calculator } from 'lucide-react';
 const Hero = () => {
   const navigate = useNavigate();
   return <div className="relative min-h-[90vh] flex items-center justify-center bg-black text-berry-white">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070')] bg-cover bg-center opacity-50" />
+      <div className="absolute inset-0 bg-[url('https://storage.googleapis.com/msgsndr/JY9ENR4Wt2w5E1Fjx2ix/media/67b380287c70fc5d430a354c.png')] bg-cover bg-center opacity-50" />
       <Navigation />
       <div className="relative z-10 container mx-auto text-center px-4">
         <h1 className="text-5xl mb-4 font-bauhaus md:text-5xl">Top-Rated Cleaning Services in Homestead &amp; Miami Area</h1>
