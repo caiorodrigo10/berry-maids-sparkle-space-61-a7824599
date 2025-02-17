@@ -1,40 +1,43 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
+
+import React, { useEffect } from 'react';
 
 const Contact = () => {
+  useEffect(() => {
+    // Create and append the script element
+    const script = document.createElement('script');
+    script.src = 'https://api.avanttocrm.com/js/form_embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Cleanup function to remove the script when component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []); // Empty dependency array means this effect runs once on mount
+
   return (
     <section className="section-padding bg-berry-purple text-white">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-3xl md:text-4xl text-center mb-12">Get Your Free Quote</h2>
-        <form className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Input
-              placeholder="Name"
-              className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-            />
-            <Input
-              type="email"
-              placeholder="Email"
-              className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-            />
-          </div>
-          <Input
-            placeholder="Phone"
-            className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+        <div className="h-[408px]">
+          <iframe
+            src="https://api.avanttocrm.com/widget/form/skIZYTdeKvvi2AFnE8lQ"
+            style={{ width: '100%', height: '100%', border: 'none', borderRadius: '3px' }}
+            id="inline-skIZYTdeKvvi2AFnE8lQ"
+            data-layout={`{"id":"INLINE"}`}
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Formulário Site"
+            data-height="408"
+            data-layout-iframe-id="inline-skIZYTdeKvvi2AFnE8lQ"
+            data-form-id="skIZYTdeKvvi2AFnE8lQ"
+            title="Formulário Site"
           />
-          <Textarea
-            placeholder="Tell us about your cleaning needs"
-            className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
-            rows={4}
-          />
-          <div className="text-center">
-            <Button className="w-[140px] h-[48px] text-base font-semibold uppercase bg-berry-lime hover:bg-berry-lime/90 text-black">
-              Get Quote
-            </Button>
-          </div>
-        </form>
+        </div>
       </div>
     </section>
   );
