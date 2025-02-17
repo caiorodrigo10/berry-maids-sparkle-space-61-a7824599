@@ -6,27 +6,27 @@ const areas = [
   {
     region: "Homestead",
     description: "Serving the Homestead area",
-    image: "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?q=80&w=2070"
+    image: "https://maps.googleapis.com/maps/api/staticmap?center=Homestead,FL&zoom=13&size=800x600&maptype=roadmap&style=feature:administrative%7Celement:geometry%7Cvisibility:off&style=feature:poi%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:transit%7Cvisibility:off&style=feature:water%7Ccolor:0x4a90e2"
   },
   {
     region: "Cutler Bay",
     description: "Complete coverage of Cutler Bay",
-    image: "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?q=80&w=2070"
+    image: "https://maps.googleapis.com/maps/api/staticmap?center=Cutler+Bay,FL&zoom=13&size=800x600&maptype=roadmap&style=feature:administrative%7Celement:geometry%7Cvisibility:off&style=feature:poi%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:transit%7Cvisibility:off&style=feature:water%7Ccolor:0x4a90e2"
   },
   {
     region: "Palmetto Bay",
     description: "Serving Palmetto Bay residents",
-    image: "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?q=80&w=2070"
+    image: "https://maps.googleapis.com/maps/api/staticmap?center=Palmetto+Bay,FL&zoom=13&size=800x600&maptype=roadmap&style=feature:administrative%7Celement:geometry%7Cvisibility:off&style=feature:poi%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:transit%7Cvisibility:off&style=feature:water%7Ccolor:0x4a90e2"
   },
   {
     region: "Pinecrest",
     description: "Full service in Pinecrest area",
-    image: "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?q=80&w=2070"
+    image: "https://maps.googleapis.com/maps/api/staticmap?center=Pinecrest,FL&zoom=13&size=800x600&maptype=roadmap&style=feature:administrative%7Celement:geometry%7Cvisibility:off&style=feature:poi%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:transit%7Cvisibility:off&style=feature:water%7Ccolor:0x4a90e2"
   },
   {
     region: "Kendall",
     description: "Serving the Kendall community",
-    image: "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?q=80&w=2070"
+    image: "https://maps.googleapis.com/maps/api/staticmap?center=Kendall,FL&zoom=13&size=800x600&maptype=roadmap&style=feature:administrative%7Celement:geometry%7Cvisibility:off&style=feature:poi%7Cvisibility:off&style=feature:road%7Celement:labels.icon%7Cvisibility:off&style=feature:transit%7Cvisibility:off&style=feature:water%7Ccolor:0x4a90e2"
   }
 ];
 
