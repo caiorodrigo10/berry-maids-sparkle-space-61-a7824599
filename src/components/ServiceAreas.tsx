@@ -1,21 +1,32 @@
+
 import React from 'react';
 import { MapPin } from 'lucide-react';
 
 const areas = [
   {
-    region: "Downtown San Francisco",
-    description: "Full coverage of SF's bustling downtown area",
+    region: "Homestead",
+    description: "Serving the Homestead area",
     image: "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?q=80&w=2070"
   },
   {
-    region: "Silicon Valley",
-    description: "Serving the entire Bay Area tech corridor",
+    region: "Cutler Bay",
+    description: "Complete coverage of Cutler Bay",
     image: "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?q=80&w=2070"
   },
   {
-    region: "East Bay",
-    description: "Berkeley, Oakland, and surrounding areas",
+    region: "Palmetto Bay",
+    description: "Serving Palmetto Bay residents",
     image: "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?q=80&w=2070"
+  },
+  {
+    region: "Pinecrest",
+    description: "Full service in Pinecrest area",
+    image: "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?q=80&w=2070"
+  },
+  {
+    region: "Kendall",
+    description: "Serving the Kendall community",
+    image: "https://images.unsplash.com/photo-1537944434965-cf4679d1a598?q=80&w=2070"
   }
 ];
 
@@ -24,7 +35,7 @@ const ServiceAreas = () => {
     <section className="section-padding bg-white">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl text-center mb-12 text-berry-purple">
-          Service Areas
+          Service Areas in Florida
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {areas.map((area, index) => (

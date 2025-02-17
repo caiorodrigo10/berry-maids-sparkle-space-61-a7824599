@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Facebook, Instagram, Mail, Phone } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -21,6 +22,10 @@ const Footer = () => {
                 <Mail size={18} />
                 info@berrymaids.com
               </a>
+              <div className="flex items-start gap-2 text-gray-400">
+                <MapPin size={18} className="mt-1 flex-shrink-0" />
+                <p>24446 SW 108th PL<br />Homestead, FL 33032</p>
+              </div>
             </div>
           </div>
           <div>
