@@ -4,49 +4,49 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const workShowcase = [
   {
-    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070",
-    title: "Living Room Cleaning",
-    description: "Deep cleaning for living spaces"
+    image: "/lovable-uploads/5a772a75-a90e-4966-84f8-3bf2f4c71b9c.png",
+    title: "Leather Furniture Care",
+    description: "Professional leather cleaning and conditioning"
   },
   {
-    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2070",
-    title: "Kitchen Excellence",
-    description: "Professional kitchen sanitization"
+    image: "/lovable-uploads/af6f2fab-fac8-40ba-bbb5-5271c33560ed.png",
+    title: "Furniture & Decor Cleaning",
+    description: "Detailed cleaning of furniture and decorative items"
   },
   {
-    image: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?q=80&w=2070",
-    title: "Bathroom Cleaning",
-    description: "Thorough bathroom maintenance"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=2074",
-    title: "Office Spaces",
-    description: "Commercial cleaning services"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=2080",
-    title: "Bedroom Service",
-    description: "Detailed bedroom cleaning"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070",
+    image: "/lovable-uploads/5fde8d5f-0d3c-43f5-8906-12053364d290.png",
     title: "Window Cleaning",
-    description: "Crystal clear window services"
+    description: "Professional window cleaning services"
   },
   {
-    image: "https://images.unsplash.com/photo-1527515862127-a4303c0c78fb?q=80&w=2070",
+    image: "/lovable-uploads/9212175a-799c-40a4-99a8-2b8d92a69617.png",
+    title: "Glass & Shower Cleaning",
+    description: "Expert glass and shower door cleaning"
+  },
+  {
+    image: "/lovable-uploads/9c37e505-acbd-4730-aed1-6e7475949d18.png",
+    title: "Kitchen Deep Cleaning",
+    description: "Thorough kitchen cleaning and sanitization"
+  },
+  {
+    image: "/lovable-uploads/de44a741-85c6-431e-aa23-4bf1e059270b.png",
     title: "Floor Care",
-    description: "Professional floor maintenance"
+    description: "Professional floor cleaning services"
   },
   {
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070",
-    title: "Disinfection Service",
-    description: "Complete sanitization solutions"
+    image: "/lovable-uploads/4e594db0-bd02-414b-a16c-0a053c35f619.png",
+    title: "Outdoor Cleaning",
+    description: "Patio and outdoor area maintenance"
   },
   {
-    image: "https://images.unsplash.com/photo-1618220048045-10a6dbdf83e0?q=80&w=2070",
-    title: "Carpet Cleaning",
-    description: "Deep carpet cleaning service"
+    image: "/lovable-uploads/591b7cfb-035c-4c87-91c8-c26da4bcd81d.png",
+    title: "Appliance Cleaning",
+    description: "Detailed appliance cleaning services"
+  },
+  {
+    image: "/lovable-uploads/cbdb556c-6681-453a-a2de-fb8441ebaf24.png",
+    title: "Cooktop Cleaning",
+    description: "Professional cooktop and surface cleaning"
   }
 ];
 
