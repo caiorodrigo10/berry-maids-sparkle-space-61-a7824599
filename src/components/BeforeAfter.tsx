@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {
   Carousel,
@@ -7,21 +8,31 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const transformations = [
+const workShowcase = [
   {
-    before: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2070",
-    after: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070",
-    title: "Living Room Transformation"
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070",
+    title: "Modern Living Room Cleaning",
+    description: "Professional cleaning service for contemporary homes"
   },
   {
-    before: "https://images.unsplash.com/photo-1446844805183-9f5af45f89ee?q=80&w=2070",
-    after: "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2070",
-    title: "Kitchen Deep Clean"
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2070",
+    title: "Kitchen Excellence",
+    description: "Thorough kitchen cleaning and sanitization"
   },
   {
-    before: "https://images.unsplash.com/photo-1582649471521-47c71cd397f6?q=80&w=2070",
-    after: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?q=80&w=2070",
-    title: "Bathroom Makeover"
+    image: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?q=80&w=2070",
+    title: "Bathroom Perfection",
+    description: "Spotless bathroom cleaning services"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?q=80&w=2074",
+    title: "Office Space Cleaning",
+    description: "Professional commercial cleaning services"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1615874959474-d609969a20ed?q=80&w=2080",
+    title: "Bedroom Organization",
+    description: "Detailed bedroom cleaning and organizing"
   }
 ];
 
@@ -30,39 +41,26 @@ const BeforeAfter = () => {
     <section className="section-padding bg-gray-50">
       <div className="container mx-auto">
         <h2 className="text-3xl md:text-4xl text-center mb-12 text-berry-purple">
-          Before & After Gallery
+          Our Cleaning Portfolio
         </h2>
         <Carousel className="w-full max-w-5xl mx-auto">
           <CarouselContent>
-            {transformations.map((item, index) => (
+            {workShowcase.map((item, index) => (
               <CarouselItem key={index}>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-4">
-                    <div className="relative h-80">
-                      <img 
-                        src={item.before} 
-                        alt={`Before ${item.title}`}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                      <div className="absolute top-4 left-4 bg-berry-purple text-white px-3 py-1 rounded">
-                        Before
-                      </div>
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <div className="relative h-80">
-                      <img 
-                        src={item.after} 
-                        alt={`After ${item.title}`}
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                      <div className="absolute top-4 left-4 bg-berry-lime text-black px-3 py-1 rounded">
-                        After
-                      </div>
+                <div className="relative">
+                  <div className="h-[500px] relative rounded-lg overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+                      <p className="text-sm text-gray-200">{item.description}</p>
                     </div>
                   </div>
                 </div>
-                <h3 className="text-xl text-center mt-4 font-semibold">{item.title}</h3>
               </CarouselItem>
             ))}
           </CarouselContent>
