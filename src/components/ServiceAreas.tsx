@@ -6,27 +6,27 @@ const areas = [
   {
     region: "Homestead",
     description: "Serving the Homestead area",
-    image: "/lovable-uploads/73196e4a-8c7b-4a6f-b97f-d5395976a551.png"
+    image: "/lovable-uploads/fe1eb441-aafa-4f05-b618-6939c727a8d5.png"
   },
   {
     region: "Cutler Bay",
     description: "Complete coverage of Cutler Bay",
-    image: "/lovable-uploads/694ecd3c-ba9f-43dc-821c-c8921afceca3.png"
+    image: "/lovable-uploads/f1766e80-48ff-41f8-861e-ffed513d3fe6.png"
   },
   {
     region: "Palmetto Bay",
     description: "Serving Palmetto Bay residents",
-    image: "/lovable-uploads/cd95ea27-22b6-43ae-896d-25e7e73cefe7.png"
+    image: "/lovable-uploads/fd0b23cd-5538-486f-bb7f-8e9c67981f0d.png"
   },
   {
     region: "Pinecrest",
     description: "Full service in Pinecrest area",
-    image: "/lovable-uploads/f7e980df-d4af-4a9a-a4d8-45398984484a.png"
+    image: "/lovable-uploads/287b64e7-7ef1-4c9c-b15b-0652a8784aef.png"
   },
   {
     region: "Kendall",
     description: "Serving the Kendall community",
-    image: "/lovable-uploads/f56a6655-b58e-4fdf-ad20-34d116bfd040.png"
+    image: "/lovable-uploads/b53a8a2d-ed1b-4dcf-98d7-c720fcde16dd.png"
   }
 ];
 
