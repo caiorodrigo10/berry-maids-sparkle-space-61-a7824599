@@ -14,13 +14,13 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-4">Contact</h3>
             <div className="space-y-2">
-              <a href="tel:+1234567890" className="flex items-center gap-2 text-gray-400 hover:text-berry-lime">
+              <a href="tel:+17862348305" className="flex items-center gap-2 text-gray-400 hover:text-berry-lime">
                 <Phone size={18} />
-                (123) 456-7890
+                +1 (786) 234-8305
               </a>
-              <a href="mailto:info@berrymaids.com" className="flex items-center gap-2 text-gray-400 hover:text-berry-lime">
+              <a href="mailto:janainamontes14@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-berry-lime">
                 <Mail size={18} />
-                info@berrymaids.com
+                janainamontes14@gmail.com
               </a>
               <div className="flex items-start gap-2 text-gray-400">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
@@ -31,10 +31,10 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
             <div className="flex gap-4">
-              <a href="#" className="text-gray-400 hover:text-berry-lime">
+              <a href="https://www.facebook.com/profile.php?id=100085295012501" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-berry-lime">
                 <Facebook size={24} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-berry-lime">
+              <a href="https://www.instagram.com/berrymaids/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-berry-lime">
                 <Instagram size={24} />
               </a>
             </div>
