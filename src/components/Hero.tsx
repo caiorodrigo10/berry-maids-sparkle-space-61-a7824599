@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[url('https://storage.googleapis.com/msgsndr/JY9ENR4Wt2w5E1Fjx2ix/media/67b380287c70fc5d430a354c.png')] bg-cover bg-center opacity-50" />
       <Navigation />
       <div className="relative z-10 container mx-auto text-center px-4">
-        <h1 className="text-5xl mb-4 font-bauhaus md:text-5xl">The Best Cleaning Service in Homestead &amp; Miami Bay</h1>
+        <h1 className="text-5xl mb-4 font-bauhaus md:text-5xl">The Best Cleaning Service in Homestead &amp; Miami-Dade</h1>
         <div className="mb-12">
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">We Keep Miami Bay &amp; Homestead Homes Spotless!</p>
         </div>
