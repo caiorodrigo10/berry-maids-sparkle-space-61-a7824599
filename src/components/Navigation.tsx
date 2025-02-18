@@ -1,14 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
-
 const Navigation = () => {
   const [isSticky, setIsSticky] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   useEffect(() => {
     const handleScroll = () => {
       setIsSticky(window.scrollY > 0);
@@ -16,7 +13,6 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -30,7 +26,6 @@ const Navigation = () => {
       setIsMobileMenuOpen(false);
     }
   };
-
   const menuItems = [{
     label: 'Services',
     id: 'services'
@@ -44,11 +39,10 @@ const Navigation = () => {
     label: 'Contact',
     id: 'contact'
   }];
-
   return <div className={cn("w-full py-4 transition-all duration-300 z-50 absolute top-0 left-0", isSticky ? "fixed bg-black/90 shadow-lg" : "")}>
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="flex items-center">
-          <img alt="Berry Maids Logo" className="h-16 w-auto hover:opacity-90 transition-opacity" src="/lovable-uploads/40154bcb-190d-4e77-b3a0-24311dd04291.png" />
+          <img alt="Berry Maids Logo" className="h-16 w-auto hover:opacity-90 transition-opacity" src="/lovable-uploads/80dd5944-d645-4921-9ef9-4b2b9dae92a6.png" />
         </div>
         
         {/* Desktop Navigation */}
@@ -78,5 +72,4 @@ const Navigation = () => {
       </div>
     </div>;
 };
-
 export default Navigation;
