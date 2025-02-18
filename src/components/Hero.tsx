@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto text-center px-4">
         <h1 className="text-5xl mb-4 font-bauhaus md:text-5xl">The Best Cleaning Service in Homestead &amp; Miami-Dade</h1>
         <div className="mb-12">
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">We Keep Miami Bay &amp; Homestead Homes Spotless!</p>
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">We Keep Miami-Dade &amp; Homestead Homes Spotless!</p>
         </div>
         <Button onClick={() => navigate('/estimate')} className="bg-berry-purple hover:bg-berry-purple/90 text-white h-[48px] px-8 text-base font-semibold uppercase">
           <Calculator className="mr-2 h-5 w-5" />
