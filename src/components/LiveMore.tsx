@@ -5,7 +5,7 @@ import { Check } from 'lucide-react';
 const features = [
   {
     title: "we've got this",
-    description: "Every year, customers like you trust us to deliver over 2 million services."
+    description: "Every year, customers like you trust us to deliver over 5 thousand services."
   },
   {
     title: "worry-free guarantee",
