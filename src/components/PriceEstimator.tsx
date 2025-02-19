@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import LocationStep from './estimator/LocationStep';
 import HouseSizeStep from './estimator/HouseSizeStep';
@@ -10,7 +11,7 @@ import StepNavigation from './estimator/StepNavigation';
 
 const PriceEstimator = () => {
   const [step, setStep] = useState(1);
-  const [size, setSize] = useState([100]);
+  const [size, setSize] = useState([400]);
   const [bedrooms, setBedrooms] = useState(2);
   const [bathrooms, setBathrooms] = useState(1);
   const [cleanLevel, setCleanLevel] = useState(3);
@@ -43,14 +44,34 @@ const PriceEstimator = () => {
   }, []);
 
   const calculatePrice = () => {
-    let basePrice = size[0] * 0.5;
-    basePrice += bedrooms * 50;
-    basePrice += bathrooms * 70;
-    basePrice *= cleanLevel * 0.2 + 1;
-    
+    // Calcula o preço base baseado no tamanho da casa
+    let basePrice = 0;
+    const sqft = size[0];
+
+    // Aplicar coeficiente baseado no tamanho
+    if (sqft <= 2000) {
+      basePrice = sqft * 0.1;
+    } else if (sqft <= 3000) {
+      basePrice = sqft * 0.045;
+    } else if (sqft <= 4000) {
+      basePrice = sqft * 0.033;
+    } else if (sqft <= 5000) {
+      basePrice = sqft * 0.03175;
+    } else {
+      basePrice = sqft * 0.0366;
+    }
+
+    // Adiciona preço por quarto e banheiro
+    basePrice += bedrooms * 35; // $35 por quarto
+    basePrice += bathrooms * 20; // $20 por banheiro
+
+    // Adiciona extras
     extras.forEach(extra => {
       basePrice += 30;
     });
+
+    // Aplica o multiplicador de nível de limpeza
+    basePrice *= cleanLevel * 0.2 + 1;
 
     return basePrice.toFixed(2);
   };
