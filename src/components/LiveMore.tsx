@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Check } from 'lucide-react';
 
@@ -16,7 +17,7 @@ const features = [
   },
   {
     title: "time-tested",
-    description: "We have 40 years of experience providing premium residential cleaning services."
+    description: "We have 10 years of experience providing premium residential cleaning services."
   },
   {
     title: "award-worthy cleaning",
