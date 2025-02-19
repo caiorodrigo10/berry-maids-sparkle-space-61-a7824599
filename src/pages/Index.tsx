@@ -17,15 +17,15 @@ const Index = () => {
       <Hero />
       <RecoverTime />
       <Features />
-      <LiveMore />
       <div id="services">
         <Services />
       </div>
+      <BeforeAfter />
       <EstimateCTA />
       <div id="areas">
         <ServiceAreas />
       </div>
-      <BeforeAfter />
+      <LiveMore />
       <div id="contact">
         <Contact />
       </div>
