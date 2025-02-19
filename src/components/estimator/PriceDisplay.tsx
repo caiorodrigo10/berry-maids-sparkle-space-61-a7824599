@@ -1,3 +1,4 @@
+
 import EstimateSummary from './EstimateSummary';
 
 interface PriceDisplayProps {
@@ -38,6 +39,9 @@ const PriceDisplay = ({
         </div>
         <p className="text-center mt-2 text-sm opacity-90">
           Estimated price for one-time cleaning
+        </p>
+        <p className="text-center mt-4 text-base font-bold">
+          One of our experts will contact you shortly to confirm the information and schedule your cleaning.
         </p>
       </div>
 
