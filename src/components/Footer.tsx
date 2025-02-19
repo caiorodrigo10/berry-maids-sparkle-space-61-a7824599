@@ -18,9 +18,9 @@ const Footer = () => {
                 <Phone size={18} />
                 +1 (786) 998-5623
               </a>
-              <a href="mailto:janainamontes14@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-berry-lime">
+              <a href="mailto:info@berrymaids.com" className="flex items-center gap-2 text-gray-400 hover:text-berry-lime">
                 <Mail size={18} />
-                janainamontes14@gmail.com
+                info@berrymaids.com
               </a>
               <div className="flex items-start gap-2 text-gray-400">
                 <MapPin size={18} className="mt-1 flex-shrink-0" />
