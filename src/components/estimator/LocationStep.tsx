@@ -1,12 +1,15 @@
-import { useState } from 'react';
+
+import { MapPin } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { MapPin, Home } from "lucide-react";
 
-const LocationStep = () => {
-  const [zipCode, setZipCode] = useState('');
+interface LocationStepProps {
+  zipCode: string;
+  setZipCode: (zipCode: string) => void;
+}
 
+const LocationStep = ({ zipCode, setZipCode }: LocationStepProps) => {
   return (
     <Card className="py-6 px-2">
       <div className="space-y-6">

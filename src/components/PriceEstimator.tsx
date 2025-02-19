@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { toast } from "sonner";
 import LocationStep from './estimator/LocationStep';
 import HouseSizeStep from './estimator/HouseSizeStep';
 import RoomsStep from './estimator/RoomsStep';
@@ -11,6 +12,7 @@ import StepNavigation from './estimator/StepNavigation';
 
 const PriceEstimator = () => {
   const [step, setStep] = useState(1);
+  const [zipCode, setZipCode] = useState('');
   const [size, setSize] = useState([400]);
   const [bedrooms, setBedrooms] = useState(2);
   const [bathrooms, setBathrooms] = useState(1);
@@ -20,6 +22,7 @@ const PriceEstimator = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,11 +47,9 @@ const PriceEstimator = () => {
   }, []);
 
   const calculatePrice = () => {
-    // Calcula o preço base baseado no tamanho da casa
     let basePrice = 0;
     const sqft = size[0];
 
-    // Aplicar coeficiente baseado no tamanho
     if (sqft <= 2000) {
       basePrice = sqft * 0.1;
     } else if (sqft <= 3000) {
@@ -61,15 +62,79 @@ const PriceEstimator = () => {
       basePrice = sqft * 0.0366;
     }
 
-    // Adiciona preço por quarto e banheiro
-    basePrice += bedrooms * 35; // $35 por quarto
-    basePrice += bathrooms * 20; // $20 por banheiro
+    basePrice += bedrooms * 35;
+    basePrice += bathrooms * 20;
 
     return basePrice.toFixed(2);
   };
 
+  const validateFields = () => {
+    if (!zipCode || zipCode.length !== 5) {
+      toast.error("Please enter a valid ZIP code");
+      return false;
+    }
+    if (!name.trim()) {
+      toast.error("Please enter your name");
+      return false;
+    }
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      toast.error("Please enter a valid email address");
+      return false;
+    }
+    if (!phone.trim() || phone.length < 10) {
+      toast.error("Please enter a valid phone number");
+      return false;
+    }
+    return true;
+  };
+
+  const sendWebhookData = async () => {
+    const calculatedPrice = calculatePrice();
+    const formData = {
+      house_size: `${size[0]} sq ft`,
+      zip_code: zipCode,
+      bedrooms: bedrooms.toString(),
+      bathrooms: bathrooms.toString(),
+      cleanliness_level: cleanLevel.toString(),
+      additional_services: extras.join(", "),
+      name: name,
+      email: email,
+      phone: phone,
+      estimated_price: `$${calculatedPrice}`
+    };
+
+    try {
+      setIsLoading(true);
+      const response = await fetch('https://services.leadconnectorhq.com/hooks/JY9ENR4Wt2w5E1Fjx2ix/webhook-trigger/ee2ac8e5-5578-4a00-a0fa-f57589dcbded', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send data');
+      }
+
+      toast.success("Information submitted successfully!");
+      setStep(step + 1);
+    } catch (error) {
+      console.error('Error sending data:', error);
+      toast.error("Failed to submit information. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const nextStep = () => {
-    if (step < 7) setStep(step + 1);
+    if (step === 6) {
+      if (validateFields()) {
+        sendWebhookData();
+      }
+    } else if (step < 7) {
+      setStep(step + 1);
+    }
   };
 
   const prevStep = () => {
@@ -79,7 +144,7 @@ const PriceEstimator = () => {
   const renderStep = () => {
     switch (step) {
       case 1:
-        return <LocationStep />;
+        return <LocationStep zipCode={zipCode} setZipCode={setZipCode} />;
       case 2:
         return <HouseSizeStep size={size} setSize={setSize} />;
       case 3:
@@ -140,6 +205,7 @@ const PriceEstimator = () => {
             step={step}
             prevStep={prevStep}
             nextStep={nextStep}
+            isLoading={isLoading}
           />
         </div>
       </div>

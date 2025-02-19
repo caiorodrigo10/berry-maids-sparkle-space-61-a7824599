@@ -1,4 +1,5 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+import { ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { useNavigate } from 'react-router-dom';
 
@@ -6,9 +7,10 @@ interface StepNavigationProps {
   step: number;
   prevStep: () => void;
   nextStep: () => void;
+  isLoading?: boolean;
 }
 
-const StepNavigation = ({ step, prevStep, nextStep }: StepNavigationProps) => {
+const StepNavigation = ({ step, prevStep, nextStep, isLoading = false }: StepNavigationProps) => {
   const navigate = useNavigate();
 
   const handlePrevClick = () => {
@@ -25,6 +27,7 @@ const StepNavigation = ({ step, prevStep, nextStep }: StepNavigationProps) => {
         <Button
           variant="outline"
           onClick={handlePrevClick}
+          disabled={isLoading}
           className="w-[140px] h-[48px] text-base font-semibold uppercase"
         >
           <ChevronLeft className="mr-2 h-4 w-4" /> Previous
@@ -32,9 +35,19 @@ const StepNavigation = ({ step, prevStep, nextStep }: StepNavigationProps) => {
         {step !== 7 && (
           <Button
             onClick={nextStep}
+            disabled={isLoading}
             className="w-[140px] h-[48px] text-base font-semibold uppercase gap-2 bg-berry-purple hover:bg-berry-purple/90 text-white"
           >
-            Next <ChevronRight className="h-4 w-4" />
+            {isLoading ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Sending...
+              </>
+            ) : (
+              <>
+                Next <ChevronRight className="h-4 w-4" />
+              </>
+            )}
           </Button>
         )}
       </div>
