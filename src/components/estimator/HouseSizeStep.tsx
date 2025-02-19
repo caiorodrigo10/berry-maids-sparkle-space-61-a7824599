@@ -1,3 +1,4 @@
+
 import { Home } from 'lucide-react';
 import { Slider } from "@/components/ui/slider";
 
@@ -17,8 +18,9 @@ const HouseSizeStep = ({ size, setSize }: HouseSizeStepProps) => {
         <Slider
           value={size}
           onValueChange={setSize}
-          max={300}
-          step={10}
+          min={400}
+          max={6000}
+          step={100}
           className="w-full"
         />
         <p className="text-center mt-2">{size[0]} sq ft</p>
