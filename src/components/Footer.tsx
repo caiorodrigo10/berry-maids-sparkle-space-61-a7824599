@@ -14,9 +14,9 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-semibold mb-4">Contact</h3>
             <div className="space-y-2">
-              <a href="tel:+17862348305" className="flex items-center gap-2 text-gray-400 hover:text-berry-lime">
+              <a href="tel:+17869985623" className="flex items-center gap-2 text-gray-400 hover:text-berry-lime">
                 <Phone size={18} />
-                +1 (786) 234-8305
+                +1 (786) 998-5623
               </a>
               <a href="mailto:janainamontes14@gmail.com" className="flex items-center gap-2 text-gray-400 hover:text-berry-lime">
                 <Mail size={18} />
