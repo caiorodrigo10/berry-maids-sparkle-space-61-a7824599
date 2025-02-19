@@ -65,14 +65,6 @@ const PriceEstimator = () => {
     basePrice += bedrooms * 35; // $35 por quarto
     basePrice += bathrooms * 20; // $20 por banheiro
 
-    // Adiciona extras
-    extras.forEach(extra => {
-      basePrice += 30;
-    });
-
-    // Aplica o multiplicador de nível de limpeza
-    basePrice *= cleanLevel * 0.2 + 1;
-
     return basePrice.toFixed(2);
   };
 
