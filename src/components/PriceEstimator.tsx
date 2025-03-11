@@ -12,7 +12,7 @@ import StepNavigation from './estimator/StepNavigation';
 
 const PriceEstimator = () => {
   const [step, setStep] = useState(1);
-  const [zipCode, setZipCode] = useState('');
+  const [address, setAddress] = useState('');
   const [size, setSize] = useState([400]);
   const [bedrooms, setBedrooms] = useState(2);
   const [bathrooms, setBathrooms] = useState(1);
@@ -23,6 +23,7 @@ const PriceEstimator = () => {
   const [phone, setPhone] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isStepValid, setIsStepValid] = useState(false);
 
   React.useEffect(() => {
     const observer = new IntersectionObserver(
@@ -45,6 +46,40 @@ const PriceEstimator = () => {
       }
     };
   }, []);
+
+  React.useEffect(() => {
+    // Set initial validation state for the first step
+    validateCurrentStep();
+  }, [step, address, bedrooms, bathrooms, cleanLevel, name, email, phone]);
+
+  const validateCurrentStep = () => {
+    switch (step) {
+      case 1:
+        setIsStepValid(address.length >= 6);
+        break;
+      case 2:
+        // House size is pre-selected, so always valid
+        setIsStepValid(true);
+        break;
+      case 3:
+        // Rooms are pre-selected, so always valid
+        setIsStepValid(bedrooms >= 0 && bathrooms >= 0);
+        break;
+      case 4:
+        // Cleanliness is pre-selected, so always valid
+        setIsStepValid(cleanLevel > 0);
+        break;
+      case 5:
+        // Extras are optional
+        setIsStepValid(true);
+        break;
+      case 6:
+        // Contact info is validated in the component
+        break;
+      default:
+        setIsStepValid(true);
+    }
+  };
 
   const calculatePrice = () => {
     let basePrice = 0;
@@ -69,8 +104,8 @@ const PriceEstimator = () => {
   };
 
   const validateFields = () => {
-    if (!zipCode || zipCode.length !== 5) {
-      toast.error("Please enter a valid ZIP code");
+    if (!address || address.length < 6) {
+      toast.error("Please enter a valid address");
       return false;
     }
     if (!name.trim()) {
@@ -92,7 +127,7 @@ const PriceEstimator = () => {
     const calculatedPrice = calculatePrice();
     const formData = {
       house_size: `${size[0]} sq ft`,
-      zip_code: zipCode,
+      address: address,
       bedrooms: bedrooms.toString(),
       bathrooms: bathrooms.toString(),
       cleanliness_level: cleanLevel.toString(),
@@ -128,6 +163,21 @@ const PriceEstimator = () => {
   };
 
   const nextStep = () => {
+    if (!isStepValid && step !== 5) {
+      // Step 5 (extras) is the only optional step
+      switch (step) {
+        case 1:
+          toast.error("Please enter a valid address (at least 6 characters)");
+          break;
+        case 6:
+          toast.error("Please fill in all required contact information");
+          break;
+        default:
+          toast.error("Please complete this step before proceeding");
+      }
+      return;
+    }
+
     if (step === 6) {
       if (validateFields()) {
         sendWebhookData();
@@ -144,7 +194,12 @@ const PriceEstimator = () => {
   const renderStep = () => {
     switch (step) {
       case 1:
-        return <LocationStep zipCode={zipCode} setZipCode={setZipCode} />;
+        return <LocationStep 
+                 address={address} 
+                 setAddress={setAddress} 
+                 isValid={isStepValid}
+                 setIsValid={setIsStepValid}
+               />;
       case 2:
         return <HouseSizeStep size={size} setSize={setSize} />;
       case 3:
@@ -169,6 +224,8 @@ const PriceEstimator = () => {
             setEmail={setEmail}
             phone={phone}
             setPhone={setPhone}
+            isValid={isStepValid}
+            setIsValid={setIsStepValid}
           />
         );
       case 7:

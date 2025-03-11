@@ -3,13 +3,31 @@ import { MapPin } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useState } from "react";
 
 interface LocationStepProps {
-  zipCode: string;
-  setZipCode: (zipCode: string) => void;
+  address: string;
+  setAddress: (address: string) => void;
+  isValid: boolean;
+  setIsValid: (isValid: boolean) => void;
 }
 
-const LocationStep = ({ zipCode, setZipCode }: LocationStepProps) => {
+const LocationStep = ({ address, setAddress, isValid, setIsValid }: LocationStepProps) => {
+  const [error, setError] = useState<string | null>(null);
+
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setAddress(value);
+    
+    if (value.length < 6) {
+      setError("Address must be at least 6 characters");
+      setIsValid(false);
+    } else {
+      setError(null);
+      setIsValid(true);
+    }
+  };
+
   return (
     <Card className="py-6 px-2">
       <div className="space-y-6">
@@ -20,16 +38,16 @@ const LocationStep = ({ zipCode, setZipCode }: LocationStepProps) => {
 
         <div className="space-y-4">
           <div>
-            <Label htmlFor="zipCode" className="text-lg uppercase">ZIP Code</Label>
+            <Label htmlFor="address" className="text-lg uppercase">Full Address</Label>
             <Input
-              id="zipCode"
+              id="address"
               type="text"
-              placeholder="Enter your ZIP code"
-              value={zipCode}
-              onChange={(e) => setZipCode(e.target.value)}
-              className="mt-1 h-[48px] text-lg"
-              maxLength={5}
+              placeholder="Enter your full address"
+              value={address}
+              onChange={handleAddressChange}
+              className={`mt-1 h-[48px] text-lg ${error ? 'border-red-500' : ''}`}
             />
+            {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
           </div>
 
           <div className="bg-gray-50 p-4 rounded-lg">
