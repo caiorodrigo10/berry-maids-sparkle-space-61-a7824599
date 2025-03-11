@@ -42,7 +42,7 @@ const LocationStep = ({ address, setAddress, isValid, setIsValid }: LocationStep
             <Input
               id="address"
               type="text"
-              placeholder="Enter your full address"
+              placeholder="Enter your full address (Ex: 12345 SW 328th Street, Homestead, FL 33033)"
               value={address}
               onChange={handleAddressChange}
               className={`mt-1 h-[48px] text-lg ${error ? 'border-red-500' : ''}`}
